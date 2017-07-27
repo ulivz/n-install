@@ -17,7 +17,7 @@ test('isYarnInstalled', () => {
 
 test('yarn', () => {
   fs.writeFileSync(process.cwd() + '/yarn.lock', '')
-  expect(typeof neutralInstall()).toBe('undefined')
+  expect(typeof neutralInstall()).toBe('object')
   fs.unlinkSync(process.cwd() + '/yarn.lock')
 })
 
@@ -28,5 +28,5 @@ test('npm', () => {
 })
 
 test('null', () => {
-  expect(typeof neutralInstall()).toBe('undefined')
+  expect(typeof neutralInstall()).toBe('object')
 })

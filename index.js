@@ -32,8 +32,8 @@ function isYarnInstalled() {
   })()
 }
 
-const npm = ()=> exec('npm', ['install'])
-const yarn = ()=> exec('yarn')
+const npm = () => exec('npm', ['install'])
+const yarn = () => exec('yarn')
 
 /**
  * Main
