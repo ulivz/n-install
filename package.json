@@ -1,0 +1,49 @@
+{
+  "name": "neutral-install",
+  "version": "0.0.1",
+  "description": "A neutral installer between NPM and yarn",
+  "repository": {
+    "url": "ulivz/neutral-install",
+    "type": "git"
+  },
+  "main": "index.js",
+  "bin": {
+    "ni": "cli.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test:cov": "jest --coverage && npm run lint",
+    "test": "jest && npm run lint",
+    "lint": "xo"
+  },
+  "author": "ulivz <chl814@foxmail.com>",
+  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "cac": "^4.0.0",
+    "chalk": "^2.0.1",
+    "cross-spawn": "^5.1.0",
+    "inquirer": "^3.2.1",
+    "ora": "^1.3.0",
+    "yargs": "^7.1.0"
+  },
+  "devDependencies": {
+    "jest-cli": "^19.0.0",
+    "eslint-config-rem": "^3.0.0",
+    "xo": "^0.18.0"
+  },
+  "xo": {
+    "extends": "rem",
+    "envs": [
+      "jest"
+    ]
+  }
+}
