@@ -1,6 +1,6 @@
 {
   "name": "n-install",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A neutral installer between NPM and yarn",
   "repository": {
     "url": "ulivz/neutral-install",
