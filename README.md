@@ -1,6 +1,6 @@
-# neutral-install
+# n-install
 
-[![NPM version](https://img.shields.io/npm/v/neutral-install.svg?style=flat)](https://npmjs.com/package/neutral-install) [![NPM downloads](https://img.shields.io/npm/dm/neutral-install.svg?style=flat)](https://npmjs.com/package/neutral-install) [![CircleCI](https://circleci.com/gh/ulivz/neutral-install/tree/master.svg?style=shield)](https://circleci.com/gh/ulivz/neutral-install/tree/master)  [![codecov](https://codecov.io/gh/ulivz/neutral-install/branch/master/graph/badge.svg)](https://codecov.io/gh/ulivz/neutral-install)
+[![NPM version](https://img.shields.io/npm/v/n-install.svg?style=flat)](https://npmjs.com/package/n-install) [![NPM downloads](https://img.shields.io/npm/dm/n-install.svg?style=flat)](https://npmjs.com/package/n-install) [![CircleCI](https://circleci.com/gh/ulivz/n-install/tree/master.svg?style=shield)](https://circleci.com/gh/ulivz/n-install/tree/master)  [![codecov](https://codecov.io/gh/ulivz/n-install/branch/master/graph/badge.svg)](https://codecov.io/gh/ulivz/n-install)
  [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/ulivz/donate)
 
 - Install with yarn if found `yarn.lock`
@@ -10,8 +10,8 @@
 ## Install
 
 ```bash
-yarn global add neutral-install
-# or npm i neutral-install -g
+yarn global add n-install
+# or npm i n-install -g
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ ni
 
 ## Author
 
-**neutral-install** © [ulivz](https://github.com/ulivz), Released under the [MIT](./LICENSE) License.<br>
-Authored and maintained by ulivz with help from contributors ([list](https://github.com/ulivz/neutral-install/contributors)).
+**n-install** © [ulivz](https://github.com/ulivz), Released under the [MIT](./LICENSE) License.<br>
+Authored and maintained by ulivz with help from contributors ([list](https://github.com/ulivz/n-install/contributors)).
 
 > [github.com/ulivz](https://github.com/ulivz) · GitHub [@ulivz](https://github.com/ulivz) · Twitter [@ulivz](https://twitter.com/ulivz)
