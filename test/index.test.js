@@ -38,7 +38,7 @@ test('exec-exec', () => {
 })
 
 test('exec-yarn-1', () => {
-  expect(typeof yarn()).toBe('undefined')
+  expect(typeof yarn()).toBe('object')
 })
 
 test('exec-yarn-2', () => {
@@ -51,7 +51,7 @@ test('exec-npm', () => {
 
 test('exec-main-1', () => {
   fs.writeFileSync(process.cwd() + '/yarn.lock', '')
-  expect(typeof neutralInstall()).toBe('undefined')
+  expect(typeof neutralInstall()).toBe('object')
   fs.unlinkSync(process.cwd() + '/yarn.lock')
 })
 
