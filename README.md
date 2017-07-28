@@ -25,6 +25,8 @@ yarn global add n-install
 ni
 ```
 
+> Test env: node `v7.10.0` / npm `v4.2.0`
+
 <img src="./static/ni.gif" width="" height="" style=""/>
 
 ## Contributing
