@@ -1,7 +1,7 @@
 # n-install
 
 <p align="center">
-  <img src="./static/logo.png" alt="preview" />
+  <img style="width: 37%" src="./static/logo.png" alt="preview" />
 </p>
 
 
