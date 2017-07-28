@@ -1,5 +1,10 @@
 # n-install
 
+<p align="center">
+  <img src="./static/logo.png" alt="preview" />
+</p>
+
+
 [![NPM version](https://img.shields.io/npm/v/n-install.svg?style=flat)](https://npmjs.com/package/n-install) [![NPM downloads](https://img.shields.io/npm/dm/n-install.svg?style=flat)](https://npmjs.com/package/n-install) [![CircleCI](https://circleci.com/gh/ulivz/n-install/tree/master.svg?style=shield)](https://circleci.com/gh/ulivz/n-install/tree/master)  [![codecov](https://codecov.io/gh/ulivz/n-install/branch/master/graph/badge.svg)](https://codecov.io/gh/ulivz/n-install)
  [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/ulivz/donate)
 
