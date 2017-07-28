@@ -15,7 +15,7 @@ beforeAll(() => {
 })
 
 afterAll(() => {
-  spawn.sync('rm', ['-rf', 'node_modules', 'yarn*', 'package-lock.json'])
+  spawn.sync('rm', ['-rf', 'node_modules', 'yarn-error.log', 'package-lock.json'])
   process.chdir(cwd)
 })
 
