@@ -34,7 +34,7 @@ const isYarnInstalled = () => {
 
 const yarn = opts => {
   if (!isYarnInstalled() && !opts) {
-    console.log(`\n  Please visit ${chalk.underline(chalk.yellow('https://yarnpkg.com'))} to install ${chalk.redBright('yarn')} first. \n`)
+    console.log(`\n  ${chalk.redBright('yarn')} is not found,  Please visit ${chalk.underline(chalk.yellow('https://yarnpkg.com'))} to install it first. \n`)
     return
   }
   console.log(`\n  Run ${chalk.redBright('yarn')}`)
