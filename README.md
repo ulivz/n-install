@@ -25,6 +25,8 @@ yarn global add n-install
 ni
 ```
 
+<img src="./static/ni.gif" width="" height="" style=""/>
+
 ## Contributing
 
 1. Fork it!
