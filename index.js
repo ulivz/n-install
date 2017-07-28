@@ -54,18 +54,19 @@ const inquirerList = [{
  * @returns {*}
  */
 module.exports = opts => {
-  if (fs.existsSync(PWD + '/' + YARN_LOCK)) {
+  const pwd = opts.pwd || PWD
+  if (fs.existsSync(pwd + '/' + YARN_LOCK)) {
     console.log(`\n  Find ${chalk.cyan(YARN_LOCK)}`)
     return yarn()
   }
 
-  if (fs.existsSync(PWD + '/' + NPM_LOCK)) {
+  if (fs.existsSync(pwd + '/' + NPM_LOCK)) {
     console.log(`\n Find ${chalk.cyan(NPM_LOCK)}, run ${chalk.redBright('<npm install>')}\n`)
     return npm()
   }
 
   console.log()
-  return (opts.test ? Promise.resolve({ then: resolve => resolve({ choice: 'npm' }) }) : inquirer.prompt(inquirerList))
+  return (opts && opts.test ? Promise.resolve({ then: resolve => resolve({ choice: 'npm' }) }) : inquirer.prompt(inquirerList))
     .then(ob => ob.choice === 'yarn' ? yarn() : npm())
     .then(msg => msg ? (console.log(`\n  ${chalk.green('[OK]')} \n`)) : undefined)
 }
