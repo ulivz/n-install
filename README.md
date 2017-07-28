@@ -39,7 +39,7 @@ ni
 
 ## Prior art
    
-n-install wouldn't exist if it wasn't for excellent prior art, n-install is plan by [@egoist](https://github.com/egoist) and inspired by [neutral-install](https://github.com/zcong1993/neutral-install)
+n-install wouldn't exist if it wasn't for excellent prior art, n-install is planned by [@egoist](https://github.com/egoist) and inspired by [neutral-install](https://github.com/zcong1993/neutral-install)
 
 ## Author
 
