@@ -23,7 +23,7 @@ function exec(...args) {
  * @returns {*}
  */
 let yarnInstalled
-function isYarnInstalled() {
+const isYarnInstalled = () => {
   return yarnInstalled || (() => {
     const command = spawn.sync('yarn', ['--version'])
     const installed = command.stdout && command.stdout.toString().trim()
@@ -32,22 +32,31 @@ function isYarnInstalled() {
   })()
 }
 
+const yarn = opts => {
+  if (!isYarnInstalled() && !opts) {
+    console.log(`\n  Please visit ${chalk.underline(chalk.yellow('https://yarnpkg.com'))} to install ${chalk.redBright('yarn')} first. \n`)
+    return
+  }
+  console.log(`\n  Run ${chalk.redBright('yarn')}`)
+  return exec('yarn')
+}
+
 const npm = () => exec('npm', ['install'])
-const yarn = () => exec('yarn')
+
+const inquirerList = [{
+  type: 'list',
+  name: 'choice',
+  message: `Please choose an package manager:`,
+  choices: ['yarn', 'npm']
+}]
 
 /**
  * Main
  * @returns {*}
  */
-module.exports = () => {
+module.exports = opts => {
   if (fs.existsSync(PWD + '/' + YARN_LOCK)) {
     console.log(`\n  Find ${chalk.cyan(YARN_LOCK)}`)
-
-    if (!isYarnInstalled()) {
-      console.log(`\n  This project recommends to install dependencies with ${chalk.redBright('yarn')}, please install it first.\n`)
-      return
-    }
-    console.log(`\n  Run ${chalk.redBright('yarn')}`)
     return yarn()
   }
 
@@ -57,28 +66,13 @@ module.exports = () => {
   }
 
   console.log()
-  inquirer.prompt([{
-    type: 'list',
-    name: 'choice',
-    message: `Please choose an package manager:`,
-    choices: ['yarn', 'npm']
-  }])
-    .then(({ choice }) => {
-      if (choice === 'yarn') {
-        if (!isYarnInstalled()) {
-          console.log(`\n  Please visit ${chalk.underline(chalk.yellow('https://yarnpkg.com'))} to install ${chalk.redBright('yarn')} first. \n`)
-          return
-        }
-        return yarn()
-      }
-      return npm()
-    })
-    .then(msg => {
-      if (msg) {
-        console.log(`  ${chalk.green('[OK]')} \n`)
-      }
-    })
+  return (opts.test ? Promise.resolve({ then: resolve => resolve({ choice: 'npm' }) }) : inquirer.prompt(inquirerList))
+    .then(ob => ob.choice === 'yarn' ? yarn() : npm())
+    .then(msg => msg ? (console.log(`  ${chalk.green('[OK]')} \n`)) : undefined)
 }
 
 module.exports.exec = exec
 module.exports.isYarnInstalled = isYarnInstalled
+module.exports.yarn = yarn
+module.exports.npm = npm
+module.exports.inquirerList = inquirerList
