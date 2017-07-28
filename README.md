@@ -10,9 +10,7 @@
 
 - Install with yarn if found `yarn.lock`
 - Install with npm if found `package-json.lock`
-- let user choose it when no lock was found
-
-> Plan by [@egoist](https://github.com/egoist)
+- Let user choose it when no lock was found
 
 ## Install
 
@@ -39,7 +37,9 @@ ni
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## Inspired By
+## Prior art
+   
+n-install wouldn't exist if it wasn't for excellent prior art, n-install is plan by [@egoist](https://github.com/egoist) and inspired by [neutral-install](https://github.com/zcong1993/neutral-install)
 
 ## Author
 
