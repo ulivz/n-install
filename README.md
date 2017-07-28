@@ -12,6 +12,8 @@
 - Install with npm if found `package-json.lock`
 - let user choose it when no lock was found
 
+> Plan by [@egoist](https://github.com/egoist)
+
 ## Install
 
 ```bash
@@ -37,6 +39,7 @@ ni
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
+## Inspired By
 
 ## Author
 
