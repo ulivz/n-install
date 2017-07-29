@@ -1,7 +1,23 @@
 const fs = require('fs')
+const path = require('path')
+const spawn = require('cross-spawn')
 const neutralInstall = require('../')
 
 const { exec, isYarnInstalled, yarn, npm, inquirerList } = neutralInstall
+const cwd = process.cwd()
+const fixtureDir = path.resolve(cwd, 'test/fixture')
+const testOpts = {
+  pwd: fixtureDir
+}
+
+beforeAll(() => {
+  process.chdir(fixtureDir)
+})
+
+afterAll(() => {
+  spawn.sync('rm', ['-rf', 'node_modules', 'yarn-error.log', 'package-lock.json'])
+  process.chdir(cwd)
+})
 
 // ***************************************************
 // TYPE
@@ -50,18 +66,18 @@ test('exec-npm', () => {
 })
 
 test('exec-main-1', () => {
-  fs.writeFileSync(process.cwd() + '/yarn.lock', '')
-  expect(typeof neutralInstall()).toBe('object')
-  fs.unlinkSync(process.cwd() + '/yarn.lock')
+  fs.writeFileSync('yarn.lock', '{}')
+  expect(typeof neutralInstall(testOpts)).toBe('object')
+  fs.unlinkSync('yarn.lock')
 })
 
 test('exec-main-2', () => {
-  fs.writeFileSync(process.cwd() + '/package-lock.json', '')
-  expect(typeof neutralInstall()).toBe('object')
-  fs.unlinkSync(process.cwd() + '/package-lock.json')
+  fs.writeFileSync('package-lock.json', '{}')
+  expect(typeof neutralInstall(testOpts)).toBe('object')
+  fs.unlinkSync('package-lock.json')
 })
 
 test('exec-main-3', () => {
-  expect(typeof neutralInstall({ test: true })).toBe('object')
+  expect(typeof neutralInstall({ test: true, pwd: fixtureDir })).toBe('object')
 })
 

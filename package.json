@@ -19,7 +19,7 @@
   },
   "scripts": {
     "test:cov": "jest --coverage && npm run lint",
-    "test": "jest && npm run lint",
+    "test": "npm run lint && jest",
     "lint": "xo"
   },
   "author": "toxichl <chl814@foxmail.com>",

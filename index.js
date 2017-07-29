@@ -22,14 +22,10 @@ function exec(...args) {
  * Check yarn's install state
  * @returns {*}
  */
-let yarnInstalled
 const isYarnInstalled = () => {
-  return yarnInstalled || (() => {
-    const command = spawn.sync('yarn', ['--version'])
-    const installed = command.stdout && command.stdout.toString().trim()
-    yarnInstalled = installed
-    return installed
-  })()
+  const command = spawn.sync('yarn', ['--version'])
+  const installed = command.stdout && command.stdout.toString().trim()
+  return installed
 }
 
 const yarn = opts => {
@@ -41,12 +37,15 @@ const yarn = opts => {
   return exec('yarn')
 }
 
-const npm = () => exec('npm', ['install'])
+const npm = () => {
+  console.log(`\n  Run ${chalk.redBright('npm')}`)
+  return exec('npm', ['install'])
+}
 
 const inquirerList = [{
   type: 'list',
   name: 'choice',
-  message: `Please choose an package manager:`,
+  message: `Please choose a package manager:`,
   choices: ['yarn', 'npm']
 }]
 
@@ -55,20 +54,21 @@ const inquirerList = [{
  * @returns {*}
  */
 module.exports = opts => {
-  if (fs.existsSync(PWD + '/' + YARN_LOCK)) {
+  const pwd = opts.pwd || PWD
+  if (fs.existsSync(pwd + '/' + YARN_LOCK)) {
     console.log(`\n  Find ${chalk.cyan(YARN_LOCK)}`)
     return yarn()
   }
 
-  if (fs.existsSync(PWD + '/' + NPM_LOCK)) {
+  if (fs.existsSync(pwd + '/' + NPM_LOCK)) {
     console.log(`\n Find ${chalk.cyan(NPM_LOCK)}, run ${chalk.redBright('<npm install>')}\n`)
     return npm()
   }
 
   console.log()
-  return (opts.test ? Promise.resolve({ then: resolve => resolve({ choice: 'npm' }) }) : inquirer.prompt(inquirerList))
+  return (opts && opts.test ? Promise.resolve({ then: resolve => resolve({ choice: 'npm' }) }) : inquirer.prompt(inquirerList))
     .then(ob => ob.choice === 'yarn' ? yarn() : npm())
-    .then(msg => msg ? (console.log(`  ${chalk.green('[OK]')} \n`)) : undefined)
+    .then(msg => msg ? (console.log(`\n  ${chalk.green('[OK]')} \n`)) : undefined)
 }
 
 module.exports.exec = exec
