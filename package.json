@@ -28,7 +28,7 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "cac": "^4.0.0",
+    "cac": "^5.0.11",
     "chalk": "^2.0.1",
     "cross-spawn": "^5.1.0",
     "inquirer": "^3.2.1",
